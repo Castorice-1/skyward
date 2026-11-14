@@ -97,6 +97,12 @@ pub struct Stock {
     pub package: String,
     /// The recovery partition's SHA-256, in lowercase hex.
     pub recovery: String,
+    /// The partition the stock build keeps the recovery in, on phones
+    /// that have none of their own: "boot" on a phone whose boot
+    /// image's ramdisk holds the recovery. A phone with a recovery
+    /// partition of its own names none, and its recovery is "recovery".
+    #[serde(default)]
+    pub partition: Option<String>,
 }
 
 /// What brings the phone's WLAN up inside a recovery, which loads none of
