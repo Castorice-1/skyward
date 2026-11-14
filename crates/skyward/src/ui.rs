@@ -110,7 +110,15 @@ impl Backlight {
                 .parse()
                 .with_context(|| format!("parse {name}"))
         };
-        let top = normal_max(read("max_brightness")?)?;
+        // A panel whose device tree gives no normal maximum lights its whole
+        // range, as the phone's own system drives it: alioth's k11a panel is
+        // one, and a recovery that will not open its own backlight is a
+        // black screen.
+        let max = read("max_brightness")?;
+        let top = normal_max(max).unwrap_or_else(|e| {
+            eprintln!("{e}; lighting the backlight's whole range");
+            max
+        });
         let level = read("brightness")?;
         Ok(Backlight { path: dir.join("brightness"), top, level })
     }
