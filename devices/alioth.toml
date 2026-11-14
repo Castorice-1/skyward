@@ -131,7 +131,7 @@ server = "https://update.miui.com/updates/miotaV3.php"
 [stock]
 version = "OS1.0.10.0.TKHCNXM"
 package = "https://bigota.d.miui.com/OS1.0.10.0.TKHCNXM/miui_ALIOTH_OS1.0.10.0.TKHCNXM_ddf5cf5ea0_13.0.zip"
-recovery = "f821ba6a4b39f41e131017d6f16b1539e30839e1d188c9020b2ea43ea9e5495b"
+recovery = "745ef81b4f68fe7f10473cbc3bd84d3ac622110723ec6d0a2faec3d5dafcdd99"
 # The partition that package keeps the recovery in. alioth has no recovery
 # partition of its own, so it is the boot image's ramdisk that holds the
 # recovery, and the image built on it is flashed to boot.
